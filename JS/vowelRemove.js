@@ -30,16 +30,53 @@ for (let index = 0; index < sentence.length; index++) {
 console.log(sentVowel);     //output (32) ['R', 'c', 't', ' ', 'F', 'r', 'n', 't', 'n', 'd', ' ', 'f', 'r', ' ', 'L', 's', ' ', 'C', 'p', 'l', 'd', ' ', 'N', 'd', '.', 'j', 's', ' ', 'S', 'r', 'v', 'r']
 console.log(vowelLess);     //output Rct Frntnd fr Ls Cpld Nd.js Srvr
 
+
+
+
 //<----------SOLUTION 2---------->
 // still using the for loop, only this time, if a vowel is the character, replace it with a dash
 
-//create a new variable to hold the new sentence then use the for-loop
+//create a new variable to hold the new sentence then use the for-loop. but this can only replace one vowel at a time.
 let dashedSentence = "";
 
 for (let index = 0; index < sentence.length; index++) {
   if (al.includes(sentence[index])) {
-    dashedSentence=sentence.replace("a", "-")
+    dashedSentence=sentence.replaceAll("e", "-")
   }
 }
 
-console.log(dashedSentence);
+console.log(dashedSentence);      //output R-act Front-nd for Loos- Coupl-d Nod-.js S-rv-r
+
+
+
+
+//<---------- SOLUTION 3------------>
+//Trying to use a function to check an array value and replace it
+//My sentence
+let mySentence = "Enter a sentence to replace its vowels";
+
+//Convert to lowercase to accomodate the first letter
+let result = mySentence.toLowerCase();
+
+//Split to create an array of each separate character
+let checkVowels = result.split("");
+console.log(checkVowels);
+//output ['e', 'n', 't', 'e', 'r', ' ', 'a', ' ', 's', 'e', 'n', 't', 'e', 'n', 'c', 'e', ' ', 't', 'o', ' ', 'r', 'e', 'p', 'l', 'a', 'c', 'e', ' ', 'i', 't', 's', ' ', 'v', 'o', 'w', 'e', 'l', 's']
+
+//Create a function to check an array value and replace it if it matches a vowel
+function replaceVowel (letter, index, array) {
+  if (letter === "a")  array[index] = "-";
+  if (letter === "e")  array[index] = "-";
+  if (letter === "i")  array[index] = "-";
+  if (letter === "o")  array[index] = "-";
+  if (letter === "u")  array[index] = "-";
+}
+checkVowels.forEach(replaceVowel);
+console.log(checkVowels);
+
+let newSent = checkVowels.join("");
+console.log(newSent);
+
+
+
+
