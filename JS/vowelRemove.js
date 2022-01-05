@@ -5,6 +5,8 @@
 //4. Display the word puzzle so someone else can try to guess it.
 //NB: do this without using regular expressions
 
+
+//<----------SOLUTION 1 (without dashes in place of vowels)----------->
 //create the vowel string in an array. this is what i will reference
 let al = ["a", "e", "i", "o", "u",
   "A", "E", "I", "O", "U"];
@@ -25,5 +27,19 @@ for (let index = 0; index < sentence.length; index++) {
   }
 }
 
-console.log(sentVowel);
-console.log(vowelLess);
+console.log(sentVowel);     //output (32) ['R', 'c', 't', ' ', 'F', 'r', 'n', 't', 'n', 'd', ' ', 'f', 'r', ' ', 'L', 's', ' ', 'C', 'p', 'l', 'd', ' ', 'N', 'd', '.', 'j', 's', ' ', 'S', 'r', 'v', 'r']
+console.log(vowelLess);     //output Rct Frntnd fr Ls Cpld Nd.js Srvr
+
+//<----------SOLUTION 2---------->
+// still using the for loop, only this time, if a vowel is the character, replace it with a dash
+
+//create a new variable to hold the new sentence then use the for-loop
+let dashedSentence = "";
+
+for (let index = 0; index < sentence.length; index++) {
+  if (al.includes(sentence[index])) {
+    dashedSentence=sentence.replace("a", "-")
+  }
+}
+
+console.log(dashedSentence);
