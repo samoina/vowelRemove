@@ -78,11 +78,14 @@ console.log(checkVowels);
 let newSent = checkVowels.join("");
 console.log(newSent);
 
+let yourInputDisplay = document.getElementById("yourInput");
+yourInputDisplay.innerHTML = mySentence;
+
 let newSentenceDisplay = document.getElementById("newSentence");
 newSentenceDisplay.innerHTML = newSent;
 
 
-//<----------SOLUTION 4-----------> 
+//<----------SOLUTION 3-----------> 
 //Found a resource on medium that shows how to use algorithms, loved this approach because it catrered for non-valid strings as well as strings that included numbers. So i'll run through with it.
 // resource link -> https://betterprogramming.pub/how-to-remove-vowels-from-a-string-in-javascript-fbed6e3a438e
 
@@ -93,7 +96,7 @@ newSentenceDisplay.innerHTML = newSent;
 
 //3. if the string has no alphabetical characters return an error message
 
-//4. if the string is a vowel return ""
+//4. if the string is a vowel return "-"
 
 //5. Return the string as is if its length is 1 && not a vowel
 
@@ -156,15 +159,17 @@ const noLetterString = "Please write a string that has letters in it."
 
 const zeroLengthStringMessage = "Please write a string with one or more characters in it."
 
+let outputSent;
+
 function isAValidString (string) {
   if (typeof string!== "string") {
-      console.log("notAStringMessage");
+      console.log(notAStringMessage);
   }
   if (string.length===0) {
-    console.log("zeroLengthStringMessage");
+    console.log(zeroLengthStringMessage);
   }
   if (/[a-z]/i.test(string)===false) {
-    console.log("noLetterString");
+    console.log(noLetterString);
   } else {
     return "This is a valid string."
   }
@@ -182,7 +187,7 @@ function vowelCut(string) {
   if (isAValidString(string)===notAStringMessage || isAValidString(string) === zeroLengthStringMessage || isAValidString(string) === noLetterString) {
     return isAValidString(string)
   }
-  if (hasVowels(String)) {
+  if (hasVowels(string)) {
     if (string.length===1) {
       console.log("-");
     } else {
@@ -195,8 +200,8 @@ function vowelCut(string) {
        }
      })
      console.log(vowelArr);
-     let vowelLess = vowelArr.join("");
-     console.log(vowelLess);
+     outputSent = vowelArr.join("");
+     console.log(outputSent);
     }
   } else {
     console.log(string);
@@ -205,6 +210,26 @@ function vowelCut(string) {
 
 let userInput =prompt("Enter a sentence to cut vowels");
 vowelCut(userInput);
+
+
+
+
+//I wanted to display the sentence on the HTML page but it retruns undefined. I assigned the function output to a new variable called tester but it would return undefined. So i declared a global variable called outputSent for the vowelLess Sentence, then appended it to the HTML and it works :)
+// let tester = vowelCut(userInput)         // returns undefined on the HTML
+// let anotherSentenceDisplay = document.getElementById("anotherSentence");
+// anotherSentenceDisplay.innerHTML = tester;
+
+
+let anotherInputDisplay = document.getElementById("anotherInput");
+anotherInputDisplay.innerHTML = userInput;
+
+let anotherSentenceDisplay = document.getElementById("anotherSentence");
+anotherSentenceDisplay.innerHTML = outputSent;
+
+
+
+
+
 
 
 
