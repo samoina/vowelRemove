@@ -53,7 +53,7 @@ console.log(dashedSentence);      //output R-act Front-nd for Loos- Coupl-d Nod-
 //<---------- SOLUTION 3------------>
 //Trying to use a function to check an array value and replace it
 //My sentence
-let mySentence = "Enter a sentence to replace its vowels";
+let mySentence = prompt("Enter a sentence to replace its vowels");
 
 //Convert to lowercase to accomodate the first letter
 let result = mySentence.toLowerCase();
@@ -77,6 +77,9 @@ console.log(checkVowels);
 
 let newSent = checkVowels.join("");
 console.log(newSent);
+
+let newSentenceDisplay = document.getElementById("newSentence");
+newSentenceDisplay.innerHTML = newSent;
 
 
 //<----------SOLUTION 4-----------> 
@@ -163,7 +166,7 @@ function isAValidString (string) {
   if (/[a-z]/i.test(string)===false) {
     console.log("noLetterString");
   } else {
-    console.log("This is a valid string.");
+    return "This is a valid string."
   }
 }
 
